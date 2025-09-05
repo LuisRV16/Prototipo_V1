@@ -12,7 +12,8 @@ const PORT = 3000;
 const genAI = new GoogleGenAI(process.env.GOOGLE_API_KEY);
 
 DB_CONFIG = {
-  'host': 'localhost',
+  'host': '127.0.0.1',
+  'port': '3307',
   'user': 'root',
   'password': '1234',
   'database': 'prueba',
@@ -126,7 +127,7 @@ app.post('/', async (req, res) => {
     .filter(query => query.length > 0); // Filtra cadenas vacías
 
   connection.query(sql, async (error, results) => {
-
+    
     let info = "";
 
     if (error) throw error;
